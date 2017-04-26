@@ -1,20 +1,23 @@
 require 'sinatra/base'
 class Battle < Sinatra::Base
 
+enable :sessions
+
   get '/' do
     erb(:players)
   end
 
-  post '/players' do
+  post '/names' do
    @player1 = params[:player1]
    @player2 = params[:player2]
     p params
-    erb(:names)
+    erb(:play)
   end
 
   get '/names' do
+    "value = " << session[:value].inspect
     p params 
-    erb(:names)
+    erb(:play)
   end
 
 run! if app_file == $0
