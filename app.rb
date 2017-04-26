@@ -5,9 +5,14 @@ get '/' do
   'Testing infrastructure working!'
 end
 
-get '/players' do
+get '/' do
   erb(:players)
-  @player1 = params[:name]
+end
+
+post '/players' do
+ @player1 = params[:name]
+  p params
+  erb(:players)
 end
 
 run! if app_file == $0
