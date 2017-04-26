@@ -7,11 +7,13 @@ class Battle < Sinatra::Base
 
   post '/players' do
    @player1 = params[:player1]
+   @player2 = params[:player2]
     p params
     erb(:names)
   end
 
   get '/names' do
+    p params 
     erb(:names)
   end
 

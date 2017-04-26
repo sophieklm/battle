@@ -3,14 +3,13 @@ require 'capybara'
 
 describe Battle do
 
-  it "checks homepage says 'Testing infrastructure working!'" do
-    visit('/')
-    expect(page).to have_content('Testing infrastructure working!')
-  end
 
- it 'expects player1 to be John' do
-   visit ('/players')
-   fill_in('Player1', :with => 'John')
+ it 'expects names of the players to be displayed' do
+   visit ('/')
+   fill_in('player1', :with => 'John')
+   fill_in('player2', :with => 'Paul')
+   click_button('Submit')
+   expect(page).to have_content('John vs. Paul')
  end
 
 end
