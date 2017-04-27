@@ -27,4 +27,11 @@ describe Battle do
     expect(page).to have_content('Paul: 40HP')
   end
 
+  it "switches turns between players & attack player 1" do
+    sign_in_and_play
+    click_button 'Switch Turns'
+    click_button 'Attack'
+    expect(page).to have_content('You have attacked John')
+  end
+
 end

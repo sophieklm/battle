@@ -25,7 +25,13 @@ enable :sessions
 
   get '/attack' do
     @game = $game
-    @game.attack(@game.player2)
+    @game.attack
+    erb(:attack) 
+  end
+
+  post '/switchturns' do
+    @game = $game
+    @game.switch_turns
     erb(:attack)
   end
   
