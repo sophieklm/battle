@@ -12,7 +12,7 @@ describe Battle do
 
  it 'displays hit points' do
    sign_in_and_play
-   expect(page).to have_content('Paul: 2 HP')
+   expect(page).to have_content('Paul: 50HP')
  end
 
  it 'attacks player 2 with confirmation' do
@@ -20,5 +20,11 @@ describe Battle do
    click_button 'Attack'
    expect(page).to have_content('You have attacked Paul')
  end
+
+  it "reduces Player 2's HP by 10" do
+    sign_in_and_play
+    click_button 'Attack'
+    expect(page).to have_content('Paul: 40HP')
+  end
 
 end

@@ -17,14 +17,14 @@ enable :sessions
   end
 
   get '/play' do
-    @player1 = $player1.name
-    @player2 = $player2.name
+    @player1 = $player1
+    @player2 = $player2
     erb(:play)
   end
 
   get '/attack' do
-    @player1 =  $player1.name
-    @player2 =  $player2.name
+    @player1 =  $player1
+    @player2 =  $player2
     erb(:attack)
   end
 
