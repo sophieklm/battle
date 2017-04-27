@@ -15,4 +15,10 @@ describe Battle do
    expect(page).to have_content('Paul: 2 HP')
  end
 
+ it 'attacks player 2 with confirmation' do
+   sign_in_and_play
+   click_button 'Attack'
+   expect(page).to have_content('You have attacked Paul')
+ end
+
 end
