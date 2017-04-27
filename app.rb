@@ -8,14 +8,15 @@ enable :sessions
   end
 
   post '/names' do
-   @player1 = params[:player1]
-   @player2 = params[:player2]
+    "player1 = " << session[:player1].inspect
+#   @player1 = params[:player1]
+    session['player1'] = params[':player1']
+    @player2 = params[:player2]
     p params
     erb(:play)
   end
 
   get '/names' do
-    "value = " << session[:value].inspect
     p params 
     erb(:play)
   end
