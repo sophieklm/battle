@@ -8,16 +8,16 @@ enable :sessions
   end
 
   post '/names' do
-    "player1 = " << session[:player1].inspect
-#   @player1 = params[:player1]
-    session['player1'] = params[':player1']
-    @player2 = params[:player2]
+    session[:player1] = params[:player1]
+    session[:player2] = params[:player2]
     p params
-    erb(:play)
+    redirect to('/play')
   end
 
-  get '/names' do
+  get '/play' do
     p params 
+    @player1 = session[:player1]
+    @player2 = session[:player2]
     erb(:play)
   end
 
