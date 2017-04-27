@@ -23,8 +23,9 @@ enable :sessions
   end
 
   get '/attack' do
-    @player1 =  $player1
-    @player2 =  $player2
+    @player1 = $player1
+    @player2 = $player2
+    @player2_hp =  $player2.reduce_hp
     erb(:attack)
   end
 

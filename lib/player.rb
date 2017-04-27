@@ -6,5 +6,9 @@ class Player
     @name = name
     @hp = hp
   end
-  
+
+  def reduce_hp
+    @hp -= 10
+  end
+
 end
