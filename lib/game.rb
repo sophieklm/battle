@@ -1,8 +1,10 @@
+require_relative 'player'
+
 class Game
 
   attr_reader :attackee, :player1, :player2
 
-  def initialize(player1, player2)
+  def initialize(player1 = Player, player2 = Player)
     @player1 = player1
     @player2 = player2
     @players = [player1, player2]
