@@ -28,10 +28,23 @@ enable :sessions
     erb(:attack)
   end
 
+  post '/attack' do
+    if $game.game_over?
+      redirect '/game_over'
+    else
+      redirect '/attack'
+    end
+  end
+
   post '/switchturns' do
     @game = $game
     @game.switch_turns
     erb(:attack)
+  end
+
+  get '/game_over' do
+    @game = $game
+    erb(:game_over)
   end
 
 run! if app_file == $0

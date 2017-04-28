@@ -26,4 +26,19 @@ describe Game do
     end
   end
 
+  describe '#game_over' do
+    it 'returns false if no loser' do
+      expect(player1).to receive(:hp) { 50 }
+      expect(player2).to receive(:hp) { 50 }
+      expect(battle.game_over?).to be false
+    end
+    it 'returns true if hp = 0' do
+      expect(player2).to receive(:reduce_hp).exactly(5).times
+      5.times {battle.attack}
+      expect(player2).to receive(:hp) { 0 }
+      expect(player1).to receive(:hp) { 50 }
+      expect(battle.game_over?).to be true
+    end
+  end
+
 end

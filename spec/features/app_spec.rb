@@ -4,7 +4,6 @@ require 'features/web_helpers'
 
 describe Battle do
 
-
  it 'expects names of the players to be displayed' do
    sign_in_and_play
    expect(page).to have_content('John: 50HP vs. Paul: 50HP')
